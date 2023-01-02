@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>USUÁRIO - Cadastro</title>
+        <title>LOGIN</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg-dark">
         <nav class="navbar navbar-dark bg-dark px-5 mb-5">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">CRUD LARAVEL</a>
@@ -36,23 +36,26 @@
         </nav>
 
         <div class="container">
-            <form method="post" action="{{ route('store'); }}">
-                @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="name" name="name">
+            <div class="d-flex flex-row w-100">
+                <div class="d-flex justify-content-center w-100">
+                    <img src="{{asset('img/laravel-placeholder.png')}}" alt="Logo Laravel" width="300" height="300">
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                <div class="d-flex flex-column w-100 justify-content-center">
+                    <h2 class="d-flex justify-content-center text-success m-3">LOGIN</h2>
+                    <form method="post" action="{{ route('login'); }}" class="d-flex flex-column">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-success">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-success">Senha</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-success">ENVIAR</button>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <button type="button" class="btn btn-danger">CANCELAR</button>
-                <button type="submit" class="btn btn-success">CADASTRAR</button>
-            </form>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
